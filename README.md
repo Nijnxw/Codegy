@@ -1,2 +1,2 @@
 # Codegy
-# An app by Sruthi and Wen Jin
+An app by Sruthi and Wen Jin
