@@ -9,3 +9,11 @@ export const firebaseConfig = {
     measurementId: "G-6HWNKKEEXS"
 };
 
+export const googleConfig = {
+    androidClientId: '129041788657-cmlichseut01fvqk0n90l0e3et71e6fh.apps.googleusercontent.com',
+    iosClientId: '129041788657-9rivq090nkqafvrfqlsoqtsn7kr1ljkg.apps.googleusercontent.com',
+}
+
+export const facebookConfig = {
+    id: '254052149144768',
+}

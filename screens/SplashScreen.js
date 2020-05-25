@@ -1,21 +1,11 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import firebase from 'firebase';
+import { checkUserLoggedIn } from '../utils/authentication/user.js';
 
 class SplashScreen extends Component {
 
     componentDidMount() {
-        this.checkUserLoggedIn();
-    }
-
-    checkUserLoggedIn = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.props.navigation.navigate('HomeScreen');
-            } else {
-                this.props.navigation.navigate('LoginScreen');
-            }
-        })
+        checkUserLoggedIn(this.props);
     }
 
     render() {
