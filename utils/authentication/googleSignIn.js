@@ -7,7 +7,7 @@ import { onSuccessfulLogin } from './login.js';
 
 isUserEqual = (googleUser, firebaseUser) => {
     if (firebaseUser) {
-        var providerData = firebaseUser.providerData;
+        const providerData = firebaseUser.providerData;
         for (var i = 0; i < providerData.length; i++) {
             if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
                 providerData[i].uid === googleUser.getBasicProfile().getId()) {
@@ -22,12 +22,12 @@ isUserEqual = (googleUser, firebaseUser) => {
 onSignIn = (googleUser) => {
     console.log('Google Auth Response', googleUser);
     // We need to register an Observer on Firebase Auth to make sure auth is initialized.
-    var unsubscribe = firebase.auth().onAuthStateChanged(function (firebaseUser) {
+    const unsubscribe = firebase.auth().onAuthStateChanged(function (firebaseUser) {
         unsubscribe();
         // Check if we are already signed-in Firebase with the correct user.
         if (!this.isUserEqual(googleUser, firebaseUser)) {
             // Build Firebase credential with the Google ID token.
-            var credential = firebase.auth.GoogleAuthProvider.credential(
+            const credential = firebase.auth.GoogleAuthProvider.credential(
                 googleUser.idToken,
                 googleUser.accessToken);
             // Sign in with credential from the Google user.
@@ -63,7 +63,7 @@ onSignIn = (googleUser) => {
         } else {
             console.log('User already signed-in Firebase.');
         }
-    }.bind(this));
+    });
 }
 export const signUpWithGoogle = async () => {
     try {
