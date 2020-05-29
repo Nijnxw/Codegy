@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Button } from "react-native";
 
-import EmailSignUp from '../utils/authentication/EmailSignUp.js';
-import { signUpWithFacebook } from '../utils/authentication/facebookSignIn.js';
-import { signUpWithGoogle } from '../utils/authentication/googleSignIn.js';
+import EmailSignUp from '../../utils/authentication/EmailSignUp.js';
+import { signUpWithFacebook } from '../../utils/authentication/facebookSignIn.js';
+import { signUpWithGoogle } from '../../utils/authentication/googleSignIn.js';
 
 class SignUpScreen extends Component {
     render() {

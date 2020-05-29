@@ -1,42 +1,49 @@
-import React from 'react';
-import { StyleSheet} from 'react-native';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native'
 
-import SplashScreen from './screens/SplashScreen';
-import LoginScreen from './screens/LoginScreen';
-import HomeScreen from './screens/HomeScreen';
-import SignUpScreen from './screens/SignUpScreen';
+import{ AppLoading } from 'expo';
+import * as Font from 'expo-font';
 
 import * as firebase from 'firebase';
 import * as Facebook from 'expo-facebook'
 import { firebaseConfig } from './config.js'
 
-firebase.initializeApp(firebaseConfig);
+// Config firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+// firebase.initializeApp(firebaseConfig);
 Facebook.initializeAsync('254052149144768', 'Codegy');
 
+// Screens
+import RootDrawerNavigator from './routes/drawer'
+
+// Fonts for our App
+const getFonts = () => Font.loadAsync({
+  'asap-italic' : require('./assets/fonts/Asap-Italic.ttf'),
+  'asap-mediumitalic' : require('./assets/fonts/Asap-MediumItalic.ttf'),
+  'orbitron-regular': require('./assets/fonts/Orbitron-Regular.ttf'),
+  'orbitron-semibold': require('./assets/fonts/Orbitron-SemiBold.ttf'),
+  'quicksand-regular': require('./assets/fonts/Quicksand-Regular.ttf'),
+  'quicksand-bold': require('./assets/fonts/Quicksand-Bold.ttf'),
+})
+
 export default function App() {
-  return (
-    <AppNavigator/>
-  );
+  // Loading Fonts for App
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  if (fontLoaded) {
+    return (
+      RootDrawerNavigator()
+    )
+  } else {
+    return (
+      <AppLoading 
+        startAsync={getFonts}
+        onFinish={() => setFontLoaded(true)}
+        onError={() => console.log('font loading error!')}
+      />
+    )
+  }
 }
 
-const AppSwitchNavigator = createSwitchNavigator({
-  SplashScreen,
-  LoginScreen,
-  SignUpScreen,
-  HomeScreen
-},
-{
-  initialRouteName: 'SplashScreen'
-});
-
-const AppNavigator = createAppContainer(AppSwitchNavigator);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

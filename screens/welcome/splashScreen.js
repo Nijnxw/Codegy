@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { addUser, userSignOut } from '../utils/authentication/user.js';
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
+import { checkUserLoggedIn } from '../../utils/authentication/user.js';
 
-class HomeScreen extends Component {
-    state = { user: {} };
+class SplashScreen extends Component {
+
     componentDidMount() {
-        addUser.bind(this);
+        checkUserLoggedIn(this.props);
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>HomeScreen</Text>
-                <Button title="Sign out" onPress={userSignOut} />
+                <Text>Loading</Text>
+                <ActivityIndicator size="large"/>
             </View>
         )
     }
 }
 
-export default HomeScreen;
+export default SplashScreen;
 
 const styles = StyleSheet.create({
     container: {
