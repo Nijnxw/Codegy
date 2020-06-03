@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
 
-export default function Settings({ navigation }) {
+export default function SettingsScreen({ navigation }) {
   
   // Now i just use text but in future needs to be screens for Settings
   const [screens, setScreens] = useState([

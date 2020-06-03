@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, ImageBackground, Dimensions } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
+import { headerBg } from './globalStyles'
 
 export default function Header({ navigation, title }) {
   return (
-    <ImageBackground source={require('../assets/background.png')} style={styles.header}>
+    <ImageBackground source={headerBg} style={styles.header}>
       <MaterialIcons name="menu" size={28} style={styles.icon}
         onPress={() => navigation.openDrawer()}  
       />
@@ -23,7 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginLeft: -16,
     marginTop: -24,
-    backgroundColor: 'red'
   },
   headerText: {
     fontFamily: 'orbitron-semibold',

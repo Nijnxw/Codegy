@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { PathScreen } from "../screens/mainScreens";
+import PathScreen from "../screens/main/PathScreen";
 import PathDetails from '../screens/details/pathDetails'
 import Header from '../shared/header'
 import { purpleBg } from '../shared/globalStyles'
@@ -24,7 +24,7 @@ export default function pathStackNav({ navigation }) {
           headerTitle: () => <Header navigation={navigation} title="Path" /> 
         }}
       />
-      <Stack.Screen name='PathDetails' component={PathDetails}      />
+      <Stack.Screen name='PathDetails' component={PathDetails} />
     </Stack.Navigator>
   );
 }

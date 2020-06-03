@@ -38,7 +38,7 @@ export default function DrawerContent(props) {
               <DrawerItem 
                 icon={({color, size}) => <MaterialIcons name="home" color={color} size={size} />}
                 label="Home"
-                onPress={() => props.navigation.navigate('Main')}
+                onPress={() => props.navigation.navigate('Home')}
               />
               <DrawerItem 
                 icon={({color, size}) => <MaterialIcons name="face" color={color} size={size} />}

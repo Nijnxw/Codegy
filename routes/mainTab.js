@@ -3,7 +3,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
 // import HomeScreen from '../screens/footer/homeScreen''
-import { ChallengeScreen, ForumScreen } from '../screens/mainScreens'
+import ChallengeScreen from '../screens/main/ChallengeScreen'
+import ForumScreen from '../screens/main/ForumScreen'
 import PathStackNav from './pathStack'
 import ArticleStackNav from './articleStack'
 import { purpleBg } from '../shared/globalStyles'
@@ -50,7 +51,7 @@ export default function BottomTabNav() {
         name="Forum" 
         component={ForumScreen} 
         options={{
-          tabBarLabel: 'Path',
+          tabBarLabel: 'Forum',
           tabBarIcon: ({ color }) =>
             <MaterialCommunityIcons name="forum" size={20} color={color} />
         }}

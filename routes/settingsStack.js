@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Settings from '../screens/settingsScreen'
+import SettingsScreen from '../screens/main/SettingsScreen'
 import Header from '../shared/header'
 import { purpleBg } from '../shared/globalStyles'
 
@@ -20,7 +20,7 @@ export default function settingsStackNav({ navigation }) {
     >
       <Stack.Screen 
         name='Settings' 
-        component={Settings} 
+        component={SettingsScreen} 
         options={{ 
           headerTitle: () => <Header navigation={navigation} title="Settings" />,          
         }}

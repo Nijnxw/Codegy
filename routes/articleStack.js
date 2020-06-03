@@ -1,15 +1,15 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { ArticleScreen } from "../screens/mainScreens";
+import ArticleScreen from "../screens/main/ArticleScreen";
 import ArticleDetails from '../screens/details/articleDetails'
 import Header from '../shared/header'
 import { purpleBg } from '../shared/globalStyles'
 
 const Stack = createStackNavigator()
 
-export default function articleStackNav({ navigation }) {
+export default function pathStackNav({ navigation }) {
   return (
-    <Stack.Navigator initialRouteName='Path'
+    <Stack.Navigator initialRouteName='Article'
       screenOptions={{
         headerStyle: {
           backgroundColor: purpleBg,
