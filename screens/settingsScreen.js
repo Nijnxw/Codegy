@@ -5,11 +5,11 @@ export default function Settings({ navigation }) {
   
   // Now i just use text but in future needs to be screens for Settings
   const [screens, setScreens] = useState([
-    { text: 'Edit Profile', key: '10' },
     { text: 'Change Password', key: '11' },
     { text: 'Terms of Conditions', key: '12' },
     { text: 'Notification Settings', key: '13' },
-    { text: 'Sign Out', key: '14' },
+    { text: 'Preferences', key: '14' },
+    { text: 'Linked Accounts', key: '15' },
   ])
   
   return (

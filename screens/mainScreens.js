@@ -1,7 +1,21 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
+import { CourseList } from '../components/Course'
 
-export default function ArticleScreen({ navigation }) {
+// All the temp data i use to render, need to connect to firebase
+import { coursesData } from '../shared/tempData'
+
+export function PathScreen({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <CourseList title="Career" data={coursesData} navigation={navigation} />
+      <CourseList title="Path" data={coursesData} navigation={navigation} />
+      <CourseList title="Language" data={coursesData} navigation={navigation} />
+    </View>
+  )
+}
+
+export function ArticleScreen({ navigation }) {
   // Now i just use text but in future needs to be Paths
   const randText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam amet autem necessitatibus. Dicta beatae veniam aliquam sit fuga ea voluptates corporis necessitatibus labore, laborum odio deleniti perferendis rem incidunt velit?'
   const [articles, setArticles] = useState([
@@ -26,6 +40,22 @@ export default function ArticleScreen({ navigation }) {
   )
 }
 
+export function ChallengeScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titleText}>Challenge screen</Text>
+    </View>
+  )
+}
+
+export function ForumScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titleText}>Forum screen</Text>
+    </View>
+  )
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -40,5 +70,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontFamily: 'quicksand-bold'
+  },
+  titleText: {
+    textAlign: 'center',
+    fontFamily: 'roboto-bold',
+    fontSize: 20,
+  },
+  listContainer: {
+    flex: 1,
+    borderColor:'#333',
+    borderWidth: 2,
+    borderRadius: 10,
+    margin: 5,
+  },
+  sectionText: {
+    fontFamily: 'roboto-bold',
+    fontSize: 20,
+    paddingLeft: 10,
+    paddingTop: 5,
   }
 })

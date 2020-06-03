@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native'
-
+import { StyleSheet, View } from 'react-native'
 import{ AppLoading } from 'expo';
 import * as Font from 'expo-font';
 
@@ -16,7 +15,7 @@ if (!firebase.apps.length) {
 Facebook.initializeAsync('254052149144768', 'Codegy');
 
 // Screens
-import RootDrawerNavigator from './routes/drawer'
+import MenuDrawerNav from './routes/menuDrawer'
 
 // Fonts for our App
 const getFonts = () => Font.loadAsync({
@@ -26,6 +25,9 @@ const getFonts = () => Font.loadAsync({
   'orbitron-semibold': require('./assets/fonts/Orbitron-SemiBold.ttf'),
   'quicksand-regular': require('./assets/fonts/Quicksand-Regular.ttf'),
   'quicksand-bold': require('./assets/fonts/Quicksand-Bold.ttf'),
+  'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+  'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
+  'roboto-black': require('./assets/fonts/Roboto-Black.ttf'),
 })
 
 export default function App() {
@@ -34,7 +36,7 @@ export default function App() {
 
   if (fontLoaded) {
     return (
-      RootDrawerNavigator()
+      MenuDrawerNav()
     )
   } else {
     return (

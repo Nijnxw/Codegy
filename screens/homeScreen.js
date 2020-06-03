@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import { addUser, userSignOut } from '../../utils/authentication/user.js';
+import { addUser, userSignOut } from '../utils/authentication/user.js';
 
 class HomeScreen extends Component {
 	state = { user: {} };
@@ -11,7 +11,7 @@ class HomeScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>HomeScreen</Text>
+				<Text>Home Screen</Text>
 				<Button title="Sign out" onPress={userSignOut} />
 			</View>
 		)
