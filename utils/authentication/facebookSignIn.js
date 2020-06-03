@@ -2,7 +2,6 @@ import firebase from 'firebase';
 import * as Facebook from 'expo-facebook';
 
 import { facebookConfig } from '../../config.js';
-import { onSuccessfulLogin } from './login.js';
 
 isUserEqual = (facebookUser, firebaseUser) => {
 	if (firebaseUser) {
@@ -66,7 +65,7 @@ onSignIn = (facebookUser) => {
 	});
 }
 
-export const signUpWithFacebook = async (props) => {
+export const signUpWithFacebook = async () => {
 	try {
 		const { type, token } = await Facebook.logInWithReadPermissionsAsync(facebookConfig.id, {
 			permissions: ['public_profile'],
@@ -74,7 +73,6 @@ export const signUpWithFacebook = async (props) => {
 		if (type === 'success') {
 			await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 			this.onSignIn(token);
-			onSuccessfulLogin(props);
 		}
 	} catch ({ message }) {
 		alert(`Facebook Login Error: ${message}`);
@@ -89,7 +87,6 @@ export const signInWithFacebook = async (props) => {
 		if (type === 'success') {
 			await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 			this.onSignIn(token);
-			onSuccessfulLogin(props)
 		}
 	} catch ({ message }) {
 		alert(`Facebook Login Error: ${message}`);

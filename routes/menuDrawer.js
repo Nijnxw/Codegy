@@ -11,7 +11,7 @@ const Drawer = createDrawerNavigator();
 
 export default function MenuDrawerNav() {
   return (
-    <NavigationContainer>
+    <>
       <Drawer.Navigator 
         initialRouteName="Home"
         drawerContent={ props => <DrawerContent {...props} /> }
@@ -20,6 +20,6 @@ export default function MenuDrawerNav() {
         <Drawer.Screen name="Profile" component={ProfileScreen} />
         <Drawer.Screen name="Settings" component={SettingsStack} />
       </Drawer.Navigator>
-    </NavigationContainer>
+    </>
   );
 }

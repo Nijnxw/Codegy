@@ -16,6 +16,7 @@ import {
     DrawerItem
 } from '@react-navigation/drawer';
 import { MaterialIcons } from '@expo/vector-icons'
+import { userSignOut } from '../utils/authentication/user.js';
 
 export default function DrawerContent(props) {
     return (
@@ -67,7 +68,7 @@ export default function DrawerContent(props) {
           <DrawerItem 
             icon={({color, size}) => <MaterialIcons name="exit-to-app" color={color} size={size} />}
             label="Sign Out"
-            onPress={() => console.log('Sign out authentication')}
+            onPress={userSignOut}
           />
         </Drawer.Section>
       </View>

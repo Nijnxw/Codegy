@@ -1,11 +1,12 @@
 import firebase from 'firebase';
 
-export const checkUserLoggedIn = (props) => {
+export const checkUserExists = () => {
+	console.log("checking");
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
-			props.navigation.navigate('HomeScreen');
+			return true;
 		} else {
-			props.navigation.navigate('LoginScreen');
+			return false;
 		}
 	})
 }

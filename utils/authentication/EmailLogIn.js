@@ -1,39 +1,41 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet, Button, TextInput } from "react-native";
 import firebase from 'firebase';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { onSuccessfulLogin, onLoginFailure } from './login.js';
-
-class EmailLogIn extends Component {
-	state = { displayName: '', email: '', password: '', errorMessage: '', loading: false };
+export default function EmailLogIn() {
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
 
 	signInWithEmail = async () => {
 		await firebase
 			.auth()
-			.signInWithEmailAndPassword(this.state.email, this.state.password)
-			.then(onSuccessfulLogin(this.props.props))
+			.signInWithEmailAndPassword(email, password)
 			.catch(error => {
 				let errorCode = error.code;
 				let errorMessage = error.message;
 				if (errorCode == 'auth/weak-password') {
-					onLoginFailure.bind(this)('Weak Password!');
+					alert('Weak Password!');
 				} else {
-					onLoginFailure.bind(this)(errorMessage);
+					alert(errorMessage);
 				}
 			});
 	}
 
-	render() {
-		return (
-			<View style={styles.container}>
+	return (
+		<View style={styles.container}>
+			<KeyboardAwareScrollView
+				style={{ flex: 1, width: '100%' }}
+				keyboardShouldPersistTaps="always">
 				<TextInput
 					style={styles.input}
 					placeholder="Email"
 					returnKeyType="next"
 					keyboardType="email-address"
 					textContentType="emailAddress"
-					value={this.state.email}
-					onChangeText={email => this.setState({ email })}
+					value={email}
+					onChangeText={email => setEmail(email)}
+					autoCapitalize="none"
 				/>
 				<TextInput
 					style={styles.input}
@@ -41,18 +43,17 @@ class EmailLogIn extends Component {
 					returnKeyType="done"
 					textContentType="newPassword"
 					secureTextEntry={true}
-					value={this.state.password}
-					onChangeText={password => this.setState({ password })}
+					value={password}
+					onChangeText={password => setPassword(password)}
+					autoCapitalize="none"
 				/>
 				<Text>Log in with Email:</Text>
 				<Button title="Log in"
 					onPress={() => this.signInWithEmail()} />
-			</View>
-		);
-	}
+			</KeyboardAwareScrollView>
+		</View>
+	);
 }
-
-export default EmailLogIn;
 
 const styles = StyleSheet.create({
     container: {

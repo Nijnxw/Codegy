@@ -3,8 +3,6 @@ import * as Google from 'expo-google-app-auth';
 import * as GoogleSignIn from 'expo-google-sign-in';
 import { googleConfig } from '../../config.js';
 
-import { onSuccessfulLogin } from './login.js';
-
 isUserEqual = (googleUser, firebaseUser) => {
 	if (firebaseUser) {
 		const providerData = firebaseUser.providerData;
@@ -84,7 +82,7 @@ export const signUpWithGoogle = async () => {
 	}
 };
 
-export const signInWithGoogle = async (props) => {
+export const signInWithGoogle = async () => {
 	try {
 		const result = await Google.logInAsync({
 			androidClientId: googleConfig.androidClientId,
@@ -117,7 +115,6 @@ export const signInWithGoogle = async (props) => {
 				var credential = error.credential;
 				// ...
 			});
-			onSuccessfulLogin(props);
 		}
 	} catch ({ message }) {
 		alert('login: Error:' + message);

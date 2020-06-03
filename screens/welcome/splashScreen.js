@@ -4,15 +4,11 @@ import { checkUserLoggedIn } from '../../utils/authentication/user.js';
 
 class SplashScreen extends Component {
 
-    componentDidMount() {
-        checkUserLoggedIn(this.props);
-    }
-
     render() {
         return (
             <View style={styles.container}>
                 <Text>Loading</Text>
-                <ActivityIndicator size="large"/>
+                <ActivityIndicator size="large" />
             </View>
         )
     }

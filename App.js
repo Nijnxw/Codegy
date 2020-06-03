@@ -5,17 +5,18 @@ import * as Font from 'expo-font';
 
 import * as firebase from 'firebase';
 import * as Facebook from 'expo-facebook'
-import { firebaseConfig } from './config.js'
+import { firebaseConfig, facebookConfig } from './config.js'
 
 // Config firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 // firebase.initializeApp(firebaseConfig);
-Facebook.initializeAsync('254052149144768', 'Codegy');
+Facebook.initializeAsync(facebookConfig, 'Codegy');
 
 // Screens
 import MenuDrawerNav from './routes/menuDrawer'
+import LoginNavigator from './routes/loginStack';
 
 // Fonts for our App
 const getFonts = () => Font.loadAsync({
@@ -36,7 +37,7 @@ export default function App() {
 
   if (fontLoaded) {
     return (
-      MenuDrawerNav()
+      < LoginNavigator />
     )
   } else {
     return (
