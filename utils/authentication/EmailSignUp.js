@@ -23,6 +23,10 @@ export default function EmailSignUp({ navigation }) {
 				let errorMessage = error.message;
 				if (errorCode == 'auth/weak-password') {
 					alert('Weak Password!');
+				} else if (errorCode == 'auth/email-already-in-use') {
+					alert('An account with this email already exists');
+				} else if (errorCode == 'auth/invalid-email') {
+					alert('Invalid email. Please provide an actual email.');
 				} else {
 					alert(errorMessage);
 				}

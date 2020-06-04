@@ -11,6 +11,7 @@ export default function LoginScreen({ navigation }) {
 		<View style={styles.container}>
 			<Text>Codegy</Text>
 			<EmailLogIn />
+			<Button title="Forgot Password?" onPress={() => navigation.navigate("ForgotPassword")} />
 			<Button title="Log in with Google"
 				onPress={() => signInWithGoogle()} />
 			<Button title="Log in with Facebook"
