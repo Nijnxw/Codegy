@@ -1,10 +1,33 @@
 
+export const profileDetails = {
+  name: 'John Doe',
+  username: 'j_doe',
+  'profile pic': require('../assets/data/profilepic.png'),
+  email: 'john_doe@gmail.com',
+  'joined date': 'Jan 2019',
+}
+
 export const coursesData = [
-  { title: 'Artificial Intelligence', details: 'A Course on Artificial Intelligence by XXX', key: '1' },
-  { title: 'Machine Learning', details: 'A Course on Machine Learning by XXX', key: '2' },
-  { title: 'OOP', details: 'A Course on OOP by XXX', key: '3' },
-  { title: 'Web Development', details: 'A Course on Web Development by XXX', key: '4' },
-  { title: 'Mobile Development', details: 'A Course on Mobile Development by XXX', key: '5' },
+  { title: 'Artificial Intelligence', 
+    details: 'A Course on Artificial Intelligence by XXX', 
+    icon: require('../assets/data/Challenges.png'),
+    key: '1' },
+  { title: 'Machine Learning', 
+    details: 'A Course on Machine Learning by XXX', 
+    icon: require('../assets/data/Challenges.png'),
+    key: '2' },
+  { title: 'OOP', 
+    details: 'A Course on OOP by XXX', 
+    icon: require('../assets/data/Challenges.png'),
+    key: '3' },
+  { title: 'Web Development', 
+    details: 'A Course on Web Development by XXX', 
+    icon: require('../assets/data/Challenges.png'),
+    key: '4' },
+  { title: 'Mobile Development', 
+    details: 'A Course on Mobile Development by XXX', 
+    icon: require('../assets/data/Challenges.png'),
+    key: '5' },
 ]
 
 const randText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam amet autem necessitatibus. Dicta beatae veniam aliquam sit fuga ea voluptates corporis necessitatibus labore, laborum odio deleniti perferendis rem incidunt velit?'

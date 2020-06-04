@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
+import { StyleSheet, Button, TextInput, View, Text, KeyboardAvoidingView } from 'react-native';
 import { Formik } from 'formik';
 import * as yup from 'yup'
 
@@ -16,7 +16,11 @@ const reviewSchema = yup.object({
     .min(4),
   email: yup.string()
     .required()
-    .email()
+    .email(),
+  goal: yup.string()
+    .min(4),
+  bio: yup.string()
+    .min(4),
 })
 
 export default function EditProfileForm() {
@@ -26,17 +30,20 @@ export default function EditProfileForm() {
     lastName: '', 
     username: '',
     email: '',
+    goal: '',
+    bio: ''
   }
   
   return (
     <View style={styles.container}>
+      <KeyboardAvoidingView behavior="position">
       <Formik
         initialValues={init}
         validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
           console.log(values)
           actions.resetForm(); 
-          {/* addReview(values); */}
+          {/* doSomething(values); */}
         }}
       >
         {props => (
@@ -76,10 +83,28 @@ export default function EditProfileForm() {
             />
             <Text style={styles.errorText}>{ props.touched.email && props.errors.email }</Text>
 
+            <TextInput
+              style={styles.input}
+              placeholder='Goal'
+              onChangeText={props.handleChange('goal')}
+              value={props.values.goal}
+            />
+            <Text style={styles.errorText}>{ props.touched.goal && props.errors.goal }</Text>
+
+            <TextInput
+              multiline
+              style={styles.input}
+              placeholder='Bio'
+              onChangeText={props.handleChange('bio')}
+              value={props.values.bio}
+            />
+            <Text style={styles.errorText}>{ props.touched.bio && props.errors.bio }</Text>
+
             <Button title="Submit" onPress={props.handleSubmit} /> 
           </View>
         )}
       </Formik>
+      </KeyboardAvoidingView>
     </View>
     
   );
@@ -91,11 +116,7 @@ const styles = StyleSheet.create({
     fontFamily: 'orbitron-semibold',
     color: '#333',
     textAlign: 'center',
-    padding: 10
-  },
-  paragraph: {
-    marginVertical: 8,
-    lineHeight: 20,
+    padding: 5,
   },
   container: {
     flex: 1,
@@ -104,7 +125,8 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: "#ddd",
-    padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     fontSize: 18,
     borderRadius: 10,
   },

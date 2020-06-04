@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, } from 'react-native'
+import { StyleSheet, View, Image, Text, TouchableOpacity, Dimensions } from 'react-native'
 
 export default function CourseCard({ item, navigation }) {
   return (
@@ -8,7 +8,7 @@ export default function CourseCard({ item, navigation }) {
       style={styles.cardContainer}
     >
       <View style={styles.iconContainer}>
-        {/* Icon */}
+        <Image style={styles.icon} source={ item.icon } />
       </View>
       <Text style={styles.itemText} numberOfLines={2}>{ item.title }</Text>
     </TouchableOpacity>
@@ -17,27 +17,38 @@ export default function CourseCard({ item, navigation }) {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    width: 115,
-    height: 150,
+    flex: 1,
+    width: Dimensions.get('window').width / 3.4,
+    height: '95%',
     backgroundColor: "#fff",
     borderWidth: 2,
     borderColor: 'royalblue',
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 5,
+    margin: 2,
+    padding: 2,
   },
   iconContainer: {
-    width: 80,
-    height: 80,
-    backgroundColor: 'pink',
+    flex: 2,
+    marginTop: 3,
+    width: '80%',
+    aspectRatio: 1,
     borderRadius: 100,
+    backgroundColor: '#fdfd96',
+  },
+  icon: {
+    flex: 1,
+    aspectRatio: 1,
+    resizeMode: 'contain'
   },
   itemText: {
-    height: 45,
+    flex: 1,
+    height: "100%",
     paddingTop: 5,
     textAlign: 'center',
     fontSize: 14,
-    fontFamily: 'roboto-black'
+    fontFamily: 'roboto-bold',
+    color: 'midnightblue',
   },
 })

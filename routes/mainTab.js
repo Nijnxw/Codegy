@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-// import HomeScreen from '../screens/footer/homeScreen''
-import ChallengeScreen from '../screens/main/ChallengeScreen'
-import ForumScreen from '../screens/main/ForumScreen'
+import HomeStackNav from './homeStack'
 import PathStackNav from './pathStack'
 import ArticleStackNav from './articleStack'
+import ChallengeStackNav from './challengeStack'
+import ForumStackNav from './forumStack'
 import { purpleBg } from '../shared/globalStyles'
 
 
@@ -15,18 +15,26 @@ const Tab = createMaterialBottomTabNavigator()
 export default function BottomTabNav() {
   return (
     <Tab.Navigator
-      initialRouteName="Path"
+      initialRouteName="Home"
       activeColor='white'
       barStyle={{ backgroundColor: purpleBg }}
     >
-      {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
+      <Tab.Screen 
+        name="Home" 
+        component={HomeStackNav} 
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color }) => 
+            <MaterialCommunityIcons name="home" size={20} color={color} />          
+        }}
+      />
       <Tab.Screen 
         name="Path" 
         component={PathStackNav} 
         options={{
           tabBarLabel: 'Path',
           tabBarIcon: ({ color }) => 
-            <FontAwesome name="graduation-cap" size={20} color={color} />          
+            <MaterialCommunityIcons name="notebook-multiple" size={20} color={color} />          
         }}
       />
       <Tab.Screen 
@@ -35,21 +43,21 @@ export default function BottomTabNav() {
         options={{
           tabBarLabel: 'Article',
           tabBarIcon: ({ color }) => 
-            <FontAwesome name="newspaper-o" size={20} color={color} />
+            <MaterialCommunityIcons name="newspaper" size={20} color={color} />
         }}
       />
       <Tab.Screen 
         name="Challenge" 
-        component={ChallengeScreen}
+        component={ChallengeStackNav}
         options={{
           tabBarLabel: 'Challenge',
           tabBarIcon: ({ color }) =>
-            <MaterialCommunityIcons name="notebook-multiple" size={20} color={color} />
+            <MaterialCommunityIcons name="calendar-multiple-check" size={20} color={color} />
         }}
       />
       <Tab.Screen 
         name="Forum" 
-        component={ForumScreen} 
+        component={ForumStackNav} 
         options={{
           tabBarLabel: 'Forum',
           tabBarIcon: ({ color }) =>

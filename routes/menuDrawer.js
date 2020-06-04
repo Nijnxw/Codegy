@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
 
 import MainTab from './mainTab'
 import ProfileScreen from '../screens/main/ProfileScreen'
@@ -13,10 +12,10 @@ export default function MenuDrawerNav() {
   return (
     <>
       <Drawer.Navigator 
-        initialRouteName="Home"
+        initialRouteName="Main"
         drawerContent={ props => <DrawerContent {...props} /> }
       >
-        <Drawer.Screen name="Home" component={MainTab} />
+        <Drawer.Screen name="Main" component={MainTab} />
         <Drawer.Screen name="Profile" component={ProfileScreen} />
         <Drawer.Screen name="Settings" component={SettingsStack} />
       </Drawer.Navigator>

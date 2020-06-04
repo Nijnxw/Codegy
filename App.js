@@ -15,7 +15,6 @@ if (!firebase.apps.length) {
 Facebook.initializeAsync(facebookConfig, 'Codegy');
 
 // Screens
-import MenuDrawerNav from './routes/menuDrawer'
 import LoginNavigator from './routes/loginStack';
 
 // Fonts for our App

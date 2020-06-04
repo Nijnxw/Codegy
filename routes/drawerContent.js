@@ -18,6 +18,9 @@ import {
 import { MaterialIcons } from '@expo/vector-icons'
 import { userSignOut } from '../utils/authentication/user.js';
 
+// Temp data
+import { profileDetails } from '../shared/tempData';
+
 export default function DrawerContent(props) {
     return (
       <View style={{flex: 1}}>
@@ -25,12 +28,12 @@ export default function DrawerContent(props) {
           <View style={styles.drawerContent}>
             <View style={styles.userInfoSection}>
               <View style={{flexDirection:'row',marginTop: 15}}>
-                <Avatar.Image size={50}
-                    source={{uri: 'https://api.adorable.io/avatars/50/abott@adorable.png'}}
+                <Avatar.Image size={50} 
+                    source={ profileDetails['profile pic'] }
                 />
                 <View style={{marginLeft:15, flexDirection:'column'}}>
-                  <Title style={styles.title}>John Doe</Title>
-                  <Caption style={styles.caption}>@j_doe</Caption>
+                  <Title style={styles.title} onPress={() => props.navigation.navigate('Profile')}>{ profileDetails.name }</Title>
+                  <Caption style={styles.caption} onPress={() => props.navigation.navigate('Profile')}>@{ profileDetails.username }</Caption>
                 </View>
               </View>
             </View>

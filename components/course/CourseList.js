@@ -5,11 +5,12 @@ import CourseCard from './CourseCard'
 export default function CourseList({ title, data, navigation }) {
   return (
     <View style={styles.listContainer}>
-      <Text style={styles.sectionText}>{ title }</Text>
+      <Text style={styles.contentTitle}>{ title }</Text>
       <FlatList
+        style={styles.list}
         data={data}
-        renderItem={({ item }) => <CourseCard navigation={navigation} item={item} />}
         horizontal={true}
+        renderItem={({ item }) => <CourseCard navigation={navigation} item={item} />}
       />
     </View>
   )
@@ -22,11 +23,12 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     margin: 5,
+    padding: 2,
   },
-  sectionText: {
-    fontFamily: 'roboto-bold',
+  contentTitle: {
+    fontFamily: 'roboto-black',
     fontSize: 20,
     paddingLeft: 10,
-    paddingTop: 5,
-  }
+    paddingVertical: 3,
+  },
 })

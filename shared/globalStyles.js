@@ -4,6 +4,8 @@ export const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    justifyContent: 'center',
+    paddingTop: 5,
   },
   content: {
     padding: 40,
@@ -13,10 +15,10 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: 'royalblue'
   },
   titleText: {
-    fontFamily: 'orbitron-semibold',
-    fontSize: 18,
-    color: '#eee',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#333',
+    fontFamily: 'roboto-black',
+    fontSize: 20,
   },
   paragraph: {
     marginVertical: 8,
@@ -27,5 +29,19 @@ export const globalStyles = StyleSheet.create({
   }
 })
 
+export const headerOption = {
+  headerStyle: {
+    backgroundColor: '#6a51ae',
+    height: 60,
+  },
+  headerTintColor: "#fff",
+  headerTitleAlign: 'center',
+  headerTitleStyle: {
+    fontFamily: 'orbitron-semibold',
+    fontSize: 30,
+  }
+}
+
 export const headerBg = require('../assets/background.png')
-export const purpleBg = '#4926a4'
+export const purpleBg = '#6a51ae'
+export const purpleBg2 = '#4926a4'

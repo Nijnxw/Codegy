@@ -1,23 +1,11 @@
-import React, { useState } from 'react'
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { View, Text } from 'react-native'
+import { globalStyles } from '../../shared/globalStyles'
 
 export default function ForumScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}>Forum screen</Text>
+    <View style={globalStyles.container}>
+      <Text style={globalStyles.titleText}>Forum Screen</Text>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-  titleText: {
-    textAlign: 'center',
-    fontFamily: 'roboto-bold',
-    fontSize: 20,
-  },
-})

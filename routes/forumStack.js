@@ -1,23 +1,20 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import PathScreen from "../screens/main/PathScreen";
-import PathDetails from '../screens/details/pathDetails'
+import ForumScreen from "../screens/main/ForumScreen";
 import Header from '../shared/header'
 import { headerOption } from '../shared/globalStyles'
 
-
 const Stack = createStackNavigator()
 
-export default function pathStackNav({ navigation }) {
+export default function forumStackNav({ navigation }) {
   return (
-    <Stack.Navigator initialRouteName='Path'
+    <Stack.Navigator initialRouteName='Forum'
       screenOptions={headerOption}
     >
-      <Stack.Screen name='Path' component={PathScreen} 
+      <Stack.Screen name='Forum' component={ForumScreen} 
         options={{ 
           headerLeft: () => <Header icon="menu" onPress={() => navigation.openDrawer()} />        }}
       />
-      <Stack.Screen name='PathDetails' component={PathDetails} />
     </Stack.Navigator>
   );
 }
